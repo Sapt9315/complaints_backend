@@ -38,9 +38,13 @@ app.use(cors({
     
     const allowedOrigins = [
       'http://localhost:3001', 
-      'http://localhost:3000',
-      'https://68bb33f114ea230008e8407d--candid-torte-20bdc5.netlify.app'
+      'http://localhost:3000'
     ];
+    
+    // Allow all Netlify domains
+    if (origin && origin.includes('.netlify.app')) {
+      return callback(null, true);
+    }
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
