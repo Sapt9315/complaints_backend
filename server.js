@@ -36,7 +36,11 @@ app.use(cors({
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     
-    const allowedOrigins = ['http://localhost:3001', 'http://localhost:3000'];
+    const allowedOrigins = [
+      'http://localhost:3001', 
+      'http://localhost:3000',
+      'https://68bb33f114ea230008e8407d--candid-torte-20bdc5.netlify.app'
+    ];
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
